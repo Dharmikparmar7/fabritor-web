@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -11,7 +12,7 @@ html, body {
   width: 64px;
 }
 
-.fabritor-layout  .ant-tabs-left >.ant-tabs-nav .ant-tabs-tab {
+.fabritor-layout .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
   padding: 8px 0;
 }
 
@@ -43,7 +44,7 @@ html, body {
   line-height: 0;
 
   &:hover {
-    background-color: rgba(64,87,109,.07);
+    background-color: rgba(64, 87, 109, 0.07);
   }
 }
 

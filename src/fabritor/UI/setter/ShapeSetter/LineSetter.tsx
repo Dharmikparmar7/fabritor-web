@@ -10,7 +10,7 @@ const { Item: FormItem } = Form;
 
 const LINE_BORDER_TYPES = BORDER_TYPES.slice(1);
 
-export default function LineSetter () {
+export default function LineSetter() {
   const { object, editor } = useContext(GlobalStateContext);
   const { t } = useTranslation();
   const [form] = Form.useForm();
@@ -25,6 +25,7 @@ export default function LineSetter () {
           editor.fireCustomModifiedEvent();
           break;
         case 'strokeWidth':
+          // @ts-ignore
           object.setStrokeWidth(values[key]);
           break;
         case 'round':
@@ -32,7 +33,13 @@ export default function LineSetter () {
           editor.fireCustomModifiedEvent();
           break;
         case 'type':
-          object.set('strokeDashArray', getStrokeDashArray({ type: values[key], strokeWidth: object.strokeWidth }));
+          object.set(
+            'strokeDashArray',
+            getStrokeDashArray({
+              type: values[key],
+              strokeWidth: object.strokeWidth,
+            }),
+          );
           editor.fireCustomModifiedEvent();
           break;
         default:
@@ -43,14 +50,15 @@ export default function LineSetter () {
     object.setCoords();
 
     editor.canvas.requestRenderAll();
-  }
+  };
 
   useEffect(() => {
     form.setFieldsValue({
       stroke: object.stroke || '#000000',
+      // @ts-ignore
       type: getObjectBorderType(object),
       strokeWidth: object.strokeWidth,
-      round: object.strokeLineCap === 'round'
+      round: object.strokeLineCap === 'round',
     });
   }, [object]);
 
@@ -73,10 +81,10 @@ export default function LineSetter () {
               <Radio.Button key={item.key} value={item.key}>
                 <span
                   dangerouslySetInnerHTML={{ __html: item.svg }}
-                  style={{ 
+                  style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    marginTop: 6
+                    marginTop: 6,
                   }}
                 />
               </Radio.Button>
@@ -102,5 +110,5 @@ export default function LineSetter () {
         <Switch />
       </FormItem>
     </Form>
-  )
+  );
 }

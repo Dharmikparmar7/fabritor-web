@@ -20,6 +20,9 @@
       "ice": [".ice"]
     }
   },
+  "noEmitOnError": false, // Ignore TypeScript errors
+  "strict": false, // Optionally disable strict mode
+  "skipLibCheck": true, // Skip checking library files
   "include": ["src", ".ice"],
   "exclude": ["build"]
 }

@@ -11,16 +11,16 @@ export const getTextboxWidth = (textbox) => {
     width += textbox.measureLine(i).width;
   }
   return width + 4;
-}
+};
 
 export const getPathOffset = (textbox) => {
   if (!textbox.path) {
     return 100;
   }
-  const path = textbox.path.path;
+  const { path } = textbox.path;
   const offset = Math.ceil(path[1][2] / (getTextboxWidth(textbox) / 2) * 100);
   return offset > 100 ? 100 : offset;
-}
+};
 
 export const drawTextPath = (textbox, offset) => {
   if (textbox.isEditing) return;
@@ -30,25 +30,30 @@ export const drawTextPath = (textbox, offset) => {
   const path = new fabric.Path(`M 0 0 Q ${width / 2} ${width / 2 * offset / 100} ${width} 0`, {
     visible: false,
     stroke: '#000000',
-    fill: '#00000000'
+    fill: '#00000000',
   });
   textbox.set({
     path,
-    width
+    width,
   });
   textbox.canvas.requestRenderAll();
-}
+};
 
 // 移除 path 属性位置错误，拖动一下才会更新。
 export const removeTextPath = (textbox) => {
   textbox.set({
-    path: null
+    path: null,
   });
   textbox.canvas.requestRenderAll();
-}
+};
 
 export const createTextbox = async (options) => {
-  let { text = '', fontFamily = TEXTBOX_DEFAULT_CONFIG.fontFamily, canvas, ...rest } = options || {};
+  let {
+    text = '',
+    fontFamily = TEXTBOX_DEFAULT_CONFIG.fontFamily,
+    canvas,
+    ...rest
+  } = options || {};
 
   if (typeof text === 'function') {
     text = text();
@@ -56,12 +61,13 @@ export const createTextbox = async (options) => {
 
   let tmpPathInfo = { hasPath: false, offset: 100 };
 
+  // @ts-ignore
   const textBox = new fabric.FText(text || translate('panel.text.add'), {
     ...TEXTBOX_DEFAULT_CONFIG,
     ...rest,
     fontFamily,
     pathAlign: 'center',
-    id: uuid()
+    id: uuid(),
   });
 
   textBox.on('editing:entered', () => {
@@ -102,4 +108,4 @@ export const createTextbox = async (options) => {
   }
 
   return textBox;
-}
+};

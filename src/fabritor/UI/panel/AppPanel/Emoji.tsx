@@ -1,41 +1,41 @@
-import { fabric } from 'fabric';
-import { useSearchParams } from 'ice';
-import AppSubPanel from './AppSubPanel';
-import data from '@emoji-mart/data';
-import Picker from '@emoji-mart/react';
-import { createTextbox } from '@/editor/objects/textbox';
-import { useContext, useEffect, useState } from 'react';
-import { GlobalStateContext } from '@/context';
+import { fabric } from "fabric";
+import { useSearchParams } from "ice";
+import AppSubPanel from "./AppSubPanel";
+import data from "@emoji-mart/data";
+import Picker from "@emoji-mart/react";
+import { createTextbox } from "@/editor/objects/textbox";
+import { useContext, useEffect, useState } from "react";
+import { GlobalStateContext } from "@/context";
 
-export default function EmojiPanel (props) {
+export default function EmojiPanel(props) {
   const { back } = props;
   const { editor } = useContext(GlobalStateContext);
   const [searchParams] = useSearchParams();
-  const lng = searchParams.get('lng') || 'en-US';
-  const [emojiLocale, setEmojiLocale] = useState('en');
+  const lng = searchParams.get("lng") || "en-US";
+  const [emojiLocale, setEmojiLocale] = useState("en");
 
   const handleEmojiSelect = async (emoji) => {
     const object = editor.canvas.getActiveObject() as fabric.Textbox;
-    if (object && object.type === 'textbox') {
-      object.set('text', `${object.text}${emoji.native}`);
+    if (object && object.type === "textbox") {
+      object.set("text", `${object.text}${emoji.native}`);
       editor.canvas.requestRenderAll();
     } else {
       await createTextbox({
         text: emoji.native,
         fontSize: 80,
         width: 100,
-        canvas: editor.canvas
+        canvas: editor.canvas,
       });
     }
-  }
+  };
 
   useEffect(() => {
-    if (lng?.indexOf('en') === 0) {
-      setEmojiLocale('en');
-    } else if (lng?.indexOf('zh') === 0) {
-      setEmojiLocale('zh');
+    if (lng?.indexOf("en") === 0) {
+      setEmojiLocale("en");
+    } else if (lng?.indexOf("zh") === 0) {
+      setEmojiLocale("zh");
     } else {
-      setEmojiLocale(lng || 'en');
+      setEmojiLocale(lng || "en");
     }
   }, [lng]);
 
@@ -51,5 +51,5 @@ export default function EmojiPanel (props) {
         onEmojiSelect={handleEmojiSelect}
       />
     </AppSubPanel>
-  )
+  );
 }

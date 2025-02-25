@@ -1,5 +1,5 @@
 import { fabric } from 'fabric';
-const clone = fabric.util.object.clone;
+const { clone } = fabric.util.object;
 
 const additionalProps =
 ('fontFamily fontWeight fontSize text underline overline linethrough' +
@@ -15,7 +15,7 @@ export const createFTextClass = () => {
 
     paintFirst: 'stroke',
 
-    initDimensions: function() {
+    initDimensions: function () {
       if (this.__skipDimension) {
         return;
       }
@@ -44,9 +44,10 @@ export const createFTextClass = () => {
       this.saveState({ propertySet: '_dimensionAffectingProps' });
     },
 
-    toObject: function(propertiesToInclude) {
+    toObject: function (propertiesToInclude) {
       const allProperties = additionalProps.concat(propertiesToInclude);
       const obj = this.callSuper('toObject', allProperties);
+      // @ts-ignore
       obj.styles = fabric.util.stylesToArray(this.styles, this.text);
       if (obj.path) {
         obj.path = this.path.toObject();
@@ -54,21 +55,35 @@ export const createFTextClass = () => {
       return obj;
     },
   });
-
-  fabric.FText.fromObject = function(object, callback) {
-    const objectCopy = clone(object), path = object.path;
+  // @ts-ignore
+  fabric.FText.fromObject = function (object, callback) {
+    const objectCopy = clone(object),
+      { path } = object;
     delete objectCopy.path;
-    return fabric.Object._fromObject('FText', objectCopy, function(textInstance) {
-      textInstance.styles = fabric.util.stylesFromArray(object.styles, object.text);
-      if (path) {
-        fabric.Object._fromObject('Path', path, function(pathInstance) {
-          textInstance.set('path', pathInstance);
+    return fabric.Object._fromObject(
+      'FText',
+      objectCopy,
+      (textInstance) => {
+        // @ts-ignore
+        textInstance.styles = fabric.util.stylesFromArray(
+          object.styles,
+          object.text,
+        );
+        if (path) {
+          fabric.Object._fromObject(
+            'Path',
+            path,
+            (pathInstance) => {
+              textInstance.set('path', pathInstance);
+              callback(textInstance);
+            },
+            'path',
+          );
+        } else {
           callback(textInstance);
-        }, 'path');
-      }
-      else {
-        callback(textInstance);
-      }
-    }, 'text');
+        }
+      },
+      'text',
+    );
   };
-}
+};

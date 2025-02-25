@@ -6,18 +6,21 @@ import { createFImage } from '@/editor/objects/image';
 import { handleMouseOutCorner } from '@/editor/controller';
 
 // @ts-ignore fabric controlsUtils
-const controlsUtils = fabric.controlsUtils;
+const { controlsUtils } = fabric;
 
-export const calcCanvasZoomLevel = (
-  containerSize,
-  sketchSize
-) => {
-  if (sketchSize.width < containerSize.width && sketchSize.height <= containerSize.height) {
+export const calcCanvasZoomLevel = (containerSize, sketchSize) => {
+  if (
+    sketchSize.width < containerSize.width &&
+    sketchSize.height <= containerSize.height
+  ) {
     return 1;
   }
 
   let level = 1;
-  if (containerSize.width / containerSize.height < sketchSize.width / sketchSize.height) {
+  if (
+    containerSize.width / containerSize.height <
+    sketchSize.width / sketchSize.height
+  ) {
     level = containerSize.width / sketchSize.width;
   } else {
     level = containerSize.height / sketchSize.height;
@@ -25,7 +28,7 @@ export const calcCanvasZoomLevel = (
 
   level = Number(level.toFixed(2));
   return level;
-}
+};
 
 let _clipboard;
 
@@ -42,22 +45,22 @@ export const copyObject = async (canvas, target) => {
 
     // 清空系统剪贴板
     navigator.clipboard.writeText('');
-    return target.clone(cloned => {
+    return target.clone((cloned) => {
       _clipboard = cloned;
       return resolve(true);
     }, FABRITOR_CUSTOM_PROPS);
   });
-}
+};
 
 export const pasteObject = async (canvas) => {
   // 先尝试读取系统剪贴板
   try {
-    const { type, result } = await getSystemClipboard() || {};
+    const { type, result } = (await getSystemClipboard()) || {};
     if (result) {
       if (type === 'text') {
         createTextbox({ text: result, canvas });
       } else if (type === 'image') {
-        createFImage({ imageSource: result, canvas })
+        createFImage({ imageSource: result, canvas });
       }
       return;
     }
@@ -74,8 +77,17 @@ export const pasteObject = async (canvas) => {
       evented: true,
     });
 
-    if(cloned.type === 'f-line' || cloned.type === 'f-arrow' || cloned.type === 'f-tri-arrow') {
-      handleFLinePointsWhenMoving({ target: cloned, transform: { original: { left: cloned.left - 50, top: cloned.top - 50 } } })
+    if (
+      cloned.type === 'f-line' ||
+      cloned.type === 'f-arrow' ||
+      cloned.type === 'f-tri-arrow'
+    ) {
+      handleFLinePointsWhenMoving({
+        target: cloned,
+        transform: {
+          original: { left: cloned.left - 50, top: cloned.top - 50 },
+        },
+      });
     }
 
     if (cloned.type === 'activeSelection') {
@@ -94,13 +106,13 @@ export const pasteObject = async (canvas) => {
     canvas.requestRenderAll();
     canvas.fire('fabritor:clone', { target: cloned });
   }, FABRITOR_CUSTOM_PROPS);
-}
+};
 
 export const removeObject = (target, canvas) => {
   if (!target) {
     target = canvas.getActiveObject();
   }
-  if (!target) return;
+  if (!target) return undefined;
   if (target.type === 'activeSelection') {
     target.getObjects().forEach((obj) => {
       canvas.remove(obj);
@@ -113,7 +125,7 @@ export const removeObject = (target, canvas) => {
   canvas.requestRenderAll();
   canvas.fire('fabritor:del', { target: null });
   return true;
-}
+};
 
 export const groupSelection = (canvas, target) => {
   if (!target) {
@@ -125,14 +137,14 @@ export const groupSelection = (canvas, target) => {
 
   canvas.getActiveObjects().forEach((o) => {
     if (o.type === 'f-image') {
-      o.img.clipPath= null;
+      o.img.clipPath = null;
     }
   });
 
   target.toGroup();
   canvas.requestRenderAll();
   canvas.fire('fabritor:group');
-}
+};
 
 export const ungroup = (canvas, target) => {
   if (!target) {
@@ -146,13 +158,13 @@ export const ungroup = (canvas, target) => {
       lockMovementX: false,
       lockMovementY: false,
       hasControls: true,
-      selectable: true
+      selectable: true,
     });
   });
   target.toActiveSelection();
   canvas.requestRenderAll();
   canvas.fire('fabritor:ungroup');
-}
+};
 
 export const changeLayerLevel = (level, editor, target) => {
   if (!target) {
@@ -180,24 +192,24 @@ export const changeLayerLevel = (level, editor, target) => {
   editor.sketch.sendToBack();
   editor.canvas.requestRenderAll();
   editor.fireCustomModifiedEvent();
-}
+};
 
 /**
-   * Transforms a point described by x and y in a distance from the top left corner of the object
-   * bounding box.
-   * @param {Object} transform
-   * @param {String} originX
-   * @param {String} originY
-   * @param {number} x
-   * @param {number} y
-   * @return {Fabric.Point} the normalized point
-   */
+ * Transforms a point described by x and y in a distance from the top left corner of the object
+ * bounding box.
+ * @param {Object} transform
+ * @param {String} originX
+ * @param {String} originY
+ * @param {number} x
+ * @param {number} y
+ * @return {Fabric.Point} the normalized point
+ */
 export const getLocalPoint = (transform, originX, originY, x, y) => {
-  var target = transform.target,
-      control = target.controls[transform.corner],
-      zoom = target.canvas.getZoom(),
-      padding = target.padding / zoom,
-      localPoint = target.toLocalPoint(new fabric.Point(x, y), originX, originY);
+  let { target } = transform,
+    control = target.controls[transform.corner],
+    zoom = target.canvas.getZoom(),
+    padding = target.padding / zoom,
+    localPoint = target.toLocalPoint(new fabric.Point(x, y), originX, originY);
   if (localPoint.x >= padding) {
     localPoint.x -= padding;
   }
@@ -213,34 +225,46 @@ export const getLocalPoint = (transform, originX, originY, x, y) => {
   localPoint.x -= control.offsetX;
   localPoint.y -= control.offsetY;
   return localPoint;
-}
+};
 
 function isTransformCentered(transform) {
   return transform.originX === 'center' && transform.originY === 'center';
 }
 
 const _changeHeight = (eventData, transform, x, y) => {
-  const target = transform.target, localPoint = getLocalPoint(transform, transform.originX, transform.originY, x, y),
-      strokePadding = target.strokeWidth / (target.strokeUniform ? target.scaleX : 1),
-      multiplier = isTransformCentered(transform) ? 2 : 1,
-      oldHeight = target.height,
-      newHeight = Math.abs(localPoint.y * multiplier / target.scaleY) - strokePadding;
+  const { target } = transform,
+    localPoint = getLocalPoint(
+      transform,
+      transform.originX,
+      transform.originY,
+      x,
+      y,
+    ),
+    strokePadding =
+      target.strokeWidth / (target.strokeUniform ? target.scaleX : 1),
+    multiplier = isTransformCentered(transform) ? 2 : 1,
+    oldHeight = target.height,
+    newHeight =
+      Math.abs((localPoint.y * multiplier) / target.scaleY) - strokePadding;
   target.set('height', Math.max(newHeight, 0));
   return oldHeight !== newHeight;
-}
+};
 
-export const changeHeight = controlsUtils.wrapWithFireEvent('resizing', controlsUtils.wrapWithFixedAnchor(_changeHeight));
+export const changeHeight = controlsUtils.wrapWithFireEvent(
+  'resizing',
+  controlsUtils.wrapWithFixedAnchor(_changeHeight),
+);
 
 export const handleFLinePointsWhenMoving = (opt) => {
   const { target, transform, action } = opt;
   if (action === 'line-points-change') return;
-  const {  original } = transform;
+  const { original } = transform;
   const deltaLeft = target.left - original.left;
   const deltaTop = target.top - original.top;
   target.set({
     x1: target.x1 + deltaLeft,
     y1: target.y1 + deltaTop,
     x2: target.x2 + deltaLeft,
-    y2: target.y2 + deltaTop
+    y2: target.y2 + deltaTop,
   });
-}
+};

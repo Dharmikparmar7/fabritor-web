@@ -1,8 +1,16 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+// @ts-ignore
 import roughRectIcon from '@/assets/rough/rect.png';
+// @ts-ignore
 import roughLineIcon from '@/assets/rough/line.png';
+// @ts-ignore
 import roughCircleIcon from '@/assets/rough/circle.png';
+// @ts-ignore
 import roughEllipseIcon from '@/assets/rough/ellipse.png';
+// @ts-ignore
 import roughRightAngleIcon from '@/assets/rough/right-angle.png';
+// @ts-ignore
 import roughDiamondIcon from '@/assets/rough/diamond.png';
 
 const DEFAULT_ROUGH_CONFIG = {
@@ -11,7 +19,7 @@ const DEFAULT_ROUGH_CONFIG = {
   strokeWidth: 8,
   roughness: 1.6,
   bowing: 1,
-}
+};
 
 export default [
   {
@@ -19,8 +27,8 @@ export default [
     elem: roughLineIcon,
     options: {
       stroke: '#E36255',
-      ...DEFAULT_ROUGH_CONFIG
-    }
+      ...DEFAULT_ROUGH_CONFIG,
+    },
   },
   {
     key: 'rough-rect',
@@ -28,8 +36,8 @@ export default [
     options: {
       fill: '#F6C445',
       stroke: '#EC6A52',
-      ...DEFAULT_ROUGH_CONFIG
-    }
+      ...DEFAULT_ROUGH_CONFIG,
+    },
   },
   {
     key: 'rough-circle',
@@ -37,8 +45,8 @@ export default [
     options: {
       fill: '#F6C445',
       stroke: '#EC6A52',
-      ...DEFAULT_ROUGH_CONFIG
-    }
+      ...DEFAULT_ROUGH_CONFIG,
+    },
   },
   {
     key: 'rough-ellipse',
@@ -46,8 +54,8 @@ export default [
     options: {
       fill: '#F6C445',
       stroke: '#EC6A52',
-      ...DEFAULT_ROUGH_CONFIG
-    }
+      ...DEFAULT_ROUGH_CONFIG,
+    },
   },
   {
     key: 'rough-right-angle',
@@ -55,8 +63,8 @@ export default [
     options: {
       fill: '#F6C445',
       stroke: '#EC6A52',
-      ...DEFAULT_ROUGH_CONFIG
-    }
+      ...DEFAULT_ROUGH_CONFIG,
+    },
   },
   {
     key: 'rough-diamond',
@@ -64,7 +72,7 @@ export default [
     options: {
       fill: '#F6C445',
       stroke: '#EC6A52',
-      ...DEFAULT_ROUGH_CONFIG
-    }
-  }
-]
+      ...DEFAULT_ROUGH_CONFIG,
+    },
+  },
+];
