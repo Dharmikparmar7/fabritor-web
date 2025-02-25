@@ -69,7 +69,7 @@
     "stylelint": "stylelint \"src/**/*.{css,scss,less}\" --cache",
     "stylelint:fix": "npm run stylelint -- --fix",
     "dev": "webpack serve --mode development --port 3001",
-    "vercelbuild": "webpack --mode production"
+    "vercelbuild": "npm run build && webpack --mode production"
   },
   "publishConfig": {
     "access": "public"
