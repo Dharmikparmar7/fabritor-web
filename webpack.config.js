@@ -9,7 +9,7 @@ module.exports = {
   // mode: "development",
   output: {
     path: path.resolve(__dirname, "build"),
-    publicPath: "http://localhost:3001/",
+    publicPath: "https://fabritor-web-three.vercel.app/",
   },
   module: {
     rules: [
