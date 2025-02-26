@@ -9,7 +9,7 @@ module.exports = {
   // mode: "development",
   output: {
     path: path.resolve(__dirname, "build"),
-    publicPath: "http://localhost:3001/",
+    publicPath: process.env.URL,
   },
   module: {
     rules: [

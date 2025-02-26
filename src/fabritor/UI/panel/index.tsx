@@ -128,11 +128,11 @@ export default function Panel() {
         shape="circle"
         style={{ left: 10, bottom: 14, right: "auto" }}
       >
-        <FloatButton
+        {/* <FloatButton
           icon={<GithubFilled />}
           href="https://github.com/sleepy-zone/fabritor-web"
           target="_blank"
-        />
+        /> */}
         <LocalesSwitch />
       </FloatButton.Group>
     </Sider>
