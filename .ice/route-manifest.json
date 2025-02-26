@@ -1,0 +1,25 @@
+[
+  {
+    "id": "layout",
+    "file": "layout.tsx",
+    "componentName": "layout",
+    "layout": true,
+    "exports": [
+      "default"
+    ],
+    "children": [
+      {
+        "index": true,
+        "id": "/",
+        "parentId": "layout",
+        "file": "index.tsx",
+        "componentName": "index",
+        "layout": false,
+        "exports": [
+          "default",
+          "pageConfig"
+        ]
+      }
+    ]
+  }
+]
