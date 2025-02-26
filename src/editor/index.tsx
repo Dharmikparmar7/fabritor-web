@@ -127,15 +127,32 @@ export default class Editor {
 
   private _initResizeObserver() {
     const { workspaceEl } = this._options;
-    this._resizeObserver = new ResizeObserver(
-      throttle(() => {
-        this.canvas.setWidth(workspaceEl.offsetWidth);
-        this.canvas.setHeight(workspaceEl.offsetHeight);
-        this._adjustSketch2Canvas();
-      }, 50),
-    );
+    
+    let lastWidth = workspaceEl.offsetWidth;
+    let lastHeight = workspaceEl.offsetHeight;
+  
+    this._resizeObserver = new ResizeObserver(entries => {
+      requestAnimationFrame(() => {
+        for (const entry of entries) {
+          const newWidth = entry.contentRect.width;
+          const newHeight = entry.contentRect.height;
+  
+          // Only update canvas if size has changed
+          if (newWidth !== lastWidth || newHeight !== lastHeight) {
+            lastWidth = newWidth;
+            lastHeight = newHeight;
+  
+            this.canvas.setWidth(newWidth);
+            this.canvas.setHeight(newHeight);
+            this._adjustSketch2Canvas();
+          }
+        }
+      });
+    });
+  
     this._resizeObserver.observe(workspaceEl);
   }
+  
 
   private _adjustSketch2Canvas() {
     const zoomLevel = calcCanvasZoomLevel(

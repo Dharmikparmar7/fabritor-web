@@ -121,11 +121,12 @@ export const createUrlImage = (options) => {
         const canvasWidth = canvas.getWidth();
         const canvasHeight = canvas.getHeight();
 
-        // Scale the image if it's wider than the canvas
-        const scaleFactor =
-          img.width > canvasWidth ? canvasWidth / img.width : 1;
+        // // Scale the image if it's wider than the canvas
+        // const scaleFactor =
+        //   img.width > canvasWidth ? canvasWidth / img.width : 1;
 
-        img.scale(scaleFactor); // Scale proportionally
+        // img.scale(scaleFactor); // Scale proportionally
+
         img.set({
           left: canvasWidth / 2,
           top: canvasHeight / 2,
@@ -133,6 +134,7 @@ export const createUrlImage = (options) => {
           originY: "center",
         });
 
+        canvas.viewportCenterObject(img);
         canvas.add(img);
         canvas.setActiveObject(img);
 

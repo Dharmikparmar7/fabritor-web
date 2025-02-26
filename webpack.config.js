@@ -6,8 +6,9 @@ const path = require("path");
 
 module.exports = {
   entry: "./src/index.js",
-  mode: "development",
+  // mode: "development",
   output: {
+    path: path.resolve(__dirname, "build"),
     publicPath: "http://localhost:3001/",
   },
   module: {
@@ -88,5 +89,8 @@ module.exports = {
   devServer: {
     port: 3001,
     static: path.join(__dirname, "build"),
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
 };

@@ -61,14 +61,13 @@
     "webpack-merge": "^6.0.1"
   },
   "scripts": {
-    "start": "ice start --speedup",
-    "build": "ice build",
+    "dev": "webpack serve --mode development --port 3001",
+   "build": "webpack --mode production",
     "surge": "yarn build && cd build && surge",
     "eslint": "eslint ./src --cache --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "npm run eslint -- --fix",
     "stylelint": "stylelint \"src/**/*.{css,scss,less}\" --cache",
     "stylelint:fix": "npm run stylelint -- --fix",
-    "dev": "webpack serve --mode development --port 3001",
     "vercelbuild": "npm run build && webpack --mode production"
   },
   "publishConfig": {
