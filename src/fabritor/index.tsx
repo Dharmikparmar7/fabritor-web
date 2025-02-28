@@ -179,7 +179,7 @@ export default function Fabritor({
       }}
     >
       <Layout style={{ height: "100%" }} className="fabritor-layout">
-        {/* <Spin spinning={!isReady} fullscreen /> */}
+        <Spin spinning={!isReady} fullscreen />
         <ObjectRotateAngleTip />
         <Header />
         <Layout className="layout component">

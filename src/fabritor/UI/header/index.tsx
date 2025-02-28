@@ -1,9 +1,10 @@
+import { CenterV } from "@/fabritor/components/Center";
 import { Layout } from "antd";
-import Toolbar from "./Toolbar";
+import MobileSetter from "../setter/MobileSetter";
+import BaseInfo from "./BaseInfo";
 import Export from "./Export";
 import Logo from "./Logo";
-import BaseInfo from "./BaseInfo";
-import { CenterV } from "@/fabritor/components/Center";
+import Toolbar from "./Toolbar";
 
 const { Header } = Layout;
 
@@ -25,6 +26,7 @@ export default function () {
         <Toolbar />
       </CenterV>
       <Export />
+      <MobileSetter />
     </Header>
   );
 }
