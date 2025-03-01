@@ -3,7 +3,7 @@ import { GlobalStateContext } from "@/context";
 import { useTranslation } from "@/i18n/utils";
 import { SKETCH_ID } from "@/utils/constants";
 import { SettingOutlined } from "@ant-design/icons";
-import { Button, Divider, Drawer } from "antd";
+import { Divider, Drawer } from "antd";
 import { useContext, useState } from "react";
 import CommonSetter from "./CommonSetter";
 import GroupSetter from "./GroupSetter";
@@ -119,9 +119,11 @@ export default function MobileSetter() {
       <Drawer
         title={getSetterTitle()}
         placement="right"
-        width={SETTER_WIDTH + 50}
+        width={SETTER_WIDTH + 30}
         onClose={toggleDrawer}
         open={isDrawerOpen}
+        getContainer={false}
+        contentWrapperStyle={{ transform: "none !important" }}
       >
         <div style={{ padding: 16 }}>
           {getRenderSetter()}
