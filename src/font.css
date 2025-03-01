@@ -1,104 +1,293 @@
 @font-face {
-  font-family: "AlibabaPuHuiTi";
-  src: url("./assets/fonts/AlibabaPuHuiTi-3-55-Regular/AlibabaPuHuiTi-3-55-Regular.woff")
-      format("woff"),
-    url("./assets/fonts/AlibabaPuHuiTi-3-55-Regular/AlibabaPuHuiTi-3-55-Regular.woff2")
-      format("woff2");
+  font-family: "AbrilFatface";
+  src: url("./assets/fonts/AbrilFatface-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SourceHanSans";
-  src: url("./assets/fonts/SourceHanSansCN-Regular.otf") format("opentype");
+  font-family: "AlfaSlabOne";
+  src: url("./assets/fonts/AlfaSlabOne-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "霞鹜新晰黑";
-  src: url("./assets/fonts/LXGWNeoXiHei.ttf");
+  font-family: "AnonymousPro";
+  src: url("./assets/fonts/AnonymousPro-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "霞鹜尚智黑";
-  src: url("./assets/fonts/LXGWFasmartGothic.ttf");
+  font-family: "AnticDidone";
+  src: url("./assets/fonts/AnticDidone-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "霞鹜文楷";
-  src: url("./assets/fonts/LXGWWenKai-Regular.ttf");
+  font-family: "AzeretMono";
+  src: url("./assets/fonts/AzeretMono-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "小赖字体";
-  src: url("./assets/fonts/XiaolaiSC-Regular.ttf");
+  font-family: "BebasNeue";
+  src: url("./assets/fonts/BebasNeue-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SourceHanSerif";
-  src: url("./assets/fonts/SourceHanSerifCN-Regular.ttf");
+  font-family: "BerkshireSwash";
+  src: url("./assets/fonts/BerkshireSwash-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "方正楷体";
-  src: url("./assets/fonts/方正楷体简体.ttf");
+  font-family: "Caveat";
+  src: url("./assets/fonts/Caveat-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "悠哉字体";
-  src: url("./assets/fonts/Yozai-Regular.ttf");
+  font-family: "CedarvilleCursive";
+  src: url("./assets/fonts/CedarvilleCursive-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "包图小白体";
-  src: url("./assets/fonts/包图小白体.ttf");
+  font-family: "Cinzel";
+  src: url("./assets/fonts/Cinzel-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "手写杂字体";
-  src: url("./assets/fonts/手写杂字体.ttf");
+  font-family: "Comfortaa";
+  src: url("./assets/fonts/Comfortaa-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "胡晓波男神体";
-  src: url("./assets/fonts/胡晓波男神体.otf") format("opentype");
+  font-family: "Cormorant";
+  src: url("./assets/fonts/Cormorant-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "胡晓波骚包体";
-  src: url("./assets/fonts/胡晓波骚包体.otf") format("opentype");
+  font-family: "CourierPrime";
+  src: url("./assets/fonts/CourierPrime-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "站酷快乐体";
-  src: url("./assets/fonts/站酷快乐体.ttf");
+  font-family: "DancingScript";
+  src: url("./assets/fonts/DancingScript-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "站酷文艺体";
-  src: url("./assets/fonts/站酷文艺体.ttf");
+  font-family: "FiraSans";
+  src: url("./assets/fonts/FiraSans-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "站酷小薇LOGO体";
-  src: url("./assets/fonts/站酷小薇LOGO体.otf") format("opentype");
+  font-family: "Gotu";
+  src: url("./assets/fonts/Gotu-Regular.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SmileySans";
-  src: url("./assets/fonts/SmileySans-Oblique.ttf");
+  font-family: "HomemadeApple";
+  src: url("./assets/fonts/HomemadeApple-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexMono";
+  src: url("./assets/fonts/IBMPlexMono-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./assets/fonts/Inconsolata-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IndieFlower";
+  src: url("./assets/fonts/IndieFlower-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Italiana";
+  src: url("./assets/fonts/Italiana-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("./assets/fonts/JetBrainsMono-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LaBelleAurore";
+  src: url("./assets/fonts/LaBelleAurore-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("./assets/fonts/Lato-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LeagueScript";
+  src: url("./assets/fonts/LeagueScript-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LibreBaskerville";
+  src: url("./assets/fonts/LibreBaskerville-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("./assets/fonts/Lobster-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("./assets/fonts/Merriweather-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansMono";
+  src: url("./assets/fonts/NotoSansMono-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSerif";
+  src: url("./assets/fonts/NotoSerif-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OldStandardTT";
+  src: url("./assets/fonts/OldStandardTT-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/OpenSans-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("./assets/fonts/Oswald-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pacifico";
+  src: url("./assets/fonts/Pacifico-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("./assets/fonts/PlayfairDisplay-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ProzaLibre";
+  src: url("./assets/fonts/ProzaLibre-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PTSans";
+  src: url("./assets/fonts/PTSans-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RobotoCondensed";
+  src: url("./assets/fonts/RobotoCondensed-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("./assets/fonts/RobotoMono-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RobotoSlab";
+  src: url("./assets/fonts/RobotoSlab-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ShadowsIntoLight";
+  src: url("./assets/fonts/ShadowsIntoLight-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Slabo13px";
+  src: url("./assets/fonts/Slabo13px-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SourceSans3";
+  src: url("./assets/fonts/SourceSans3-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./assets/fonts/SpaceMono-Regular.ttf");
   font-display: swap;
 }
