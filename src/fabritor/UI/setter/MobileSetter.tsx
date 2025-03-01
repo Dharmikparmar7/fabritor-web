@@ -104,9 +104,16 @@ export default function MobileSetter() {
 
   return (
     <>
-      <Button type="dashed" onClick={toggleDrawer}>
-        <SettingOutlined />
-      </Button>
+      <span
+        className="fabritor-toolbar-item"
+        style={{
+          marginRight: "5px",
+          padding: "3px",
+        }}
+        onClick={toggleDrawer}
+      >
+        <SettingOutlined style={{ fontSize: "20px" }} />
+      </span>
 
       {/* Drawer */}
       <Drawer

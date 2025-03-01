@@ -63,16 +63,20 @@ export default function MobilePanel() {
     setActiveTab(key);
   };
 
+  function closeDrawer() {
+    setActiveTab(null);
+  }
+
   const renderPanel = (value: string) => {
     switch (value) {
       case "design":
         return <DesignPanel />;
       case "text":
-        return <TextPanel />;
+        return <TextPanel closeDrawer={closeDrawer} />;
       case "image":
-        return <ImagePanel />;
+        return <ImagePanel closeDrawer={closeDrawer} />;
       case "shape":
-        return <ShapePanel />;
+        return <ShapePanel closeDrawer={closeDrawer} />;
       case "paint":
         return <PaintPanel />;
       case "app":

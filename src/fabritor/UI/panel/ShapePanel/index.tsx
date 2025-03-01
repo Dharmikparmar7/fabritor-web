@@ -16,11 +16,20 @@ import { createPathFromSvg } from "@/editor/objects/path";
 import Center from "@/fabritor/components/Center";
 import { useTranslation } from "@/i18n/utils";
 
-export default function ShapePanel() {
+export default function ShapePanel({
+  closeDrawer,
+}: {
+  closeDrawer?: () => void;
+}) {
   const { editor, roughSvg } = useContext(GlobalStateContext);
   const { t } = useTranslation();
 
+  function parentDrawerClose() {
+    closeDrawer && closeDrawer();
+  }
+
   const addLine = (item) => {
+    parentDrawerClose();
     const { type, options = {} } = item;
     const { canvas } = editor;
     switch (type) {
@@ -39,6 +48,7 @@ export default function ShapePanel() {
   };
 
   const addShape = (item) => {
+    parentDrawerClose();
     const { key, elem, options } = item;
     const { canvas } = editor;
     switch (key) {
@@ -62,6 +72,7 @@ export default function ShapePanel() {
   };
 
   const addRough = (item) => {
+    parentDrawerClose();
     const { key, options } = item;
     const { canvas } = editor;
     let svg;
@@ -85,7 +96,7 @@ export default function ShapePanel() {
             [0, 300],
             [300, 300],
           ],
-          options,
+          options
         );
         break;
       case "rough-diamond":
@@ -96,7 +107,7 @@ export default function ShapePanel() {
             [300, 150],
             [150, 0],
           ],
-          options,
+          options
         );
       default:
         break;
@@ -139,7 +150,7 @@ export default function ShapePanel() {
           >
             <img
               src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-                item.elem,
+                item.elem
               )}`}
               style={{ width: 64, height: 64 }}
             />
