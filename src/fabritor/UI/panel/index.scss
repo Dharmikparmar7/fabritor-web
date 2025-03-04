@@ -15,12 +15,13 @@
   border: 2px solid transparent;
   box-sizing: border-box;
   &:hover {
-    border:  2px solid rgba(255,34,34,.5) !important;
+    border: 2px solid rgba(255, 34, 34, 0.5) !important;
   }
 }
 
 .fabritor-sider {
   position: relative;
+
   .ant-layout-sider-children {
     display: flex;
     flex-direction: column;
@@ -36,4 +37,37 @@
     z-index: 99;
     background-color: #fff;
   }
+}
+
+@media (max-width: 768px) {
+  .fabritor-sider {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .baseinfo-text {
+    display: none !important;
+  }
+}
+
+.fabritor-mobile-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+  z-index: 999;
+}
+
+.fabritor-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
 }

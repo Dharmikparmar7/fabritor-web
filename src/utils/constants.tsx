@@ -36,117 +36,305 @@ export const TEXTBOX_DEFAULT_CONFIG = {
 export const FONT_PRESET_FAMILY_LIST = [
   {
     label: (
-      <span style={{ fontFamily: "SmileySans", fontSize: 16 }}>得意黑</span>
-    ),
-    value: "SmileySans",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "霞鹜新晰黑", fontSize: 16 }}>霞鹜新晰黑</span>
-    ),
-    value: "霞鹜新晰黑",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "霞鹜文楷", fontSize: 16 }}>霞鹜文楷</span>
-    ),
-    value: "霞鹜文楷",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "小赖字体", fontSize: 16 }}>小赖字体</span>
-    ),
-    value: "小赖字体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "悠哉字体", fontSize: 16 }}>悠哉字体</span>
-    ),
-    value: "悠哉字体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "AlibabaPuHuiTi", fontSize: 16 }}>
-        阿里巴巴普惠体
+      <span style={{ fontFamily: "AbrilFatface", fontSize: 16 }}>
+        AbrilFatface
       </span>
     ),
-    value: "AlibabaPuHuiTi",
+    value: "AbrilFatface",
   },
   {
     label: (
-      <span style={{ fontFamily: "霞鹜尚智黑", fontSize: 16 }}>霞鹜尚智黑</span>
-    ),
-    value: "霞鹜尚智黑",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "SourceHanSans", fontSize: 16 }}>
-        思源黑体
+      <span style={{ fontFamily: "AlfaSlabOne", fontSize: 16 }}>
+        AlfaSlabOne
       </span>
     ),
-    value: "SourceHanSans",
+    value: "AlfaSlabOne",
   },
   {
     label: (
-      <span style={{ fontFamily: "SourceHanSerif", fontSize: 16 }}>
-        思源宋体
+      <span style={{ fontFamily: "AnonymousPro", fontSize: 16 }}>
+        AnonymousPro
       </span>
     ),
-    value: "SourceHanSerif",
+    value: "AnonymousPro",
   },
   {
     label: (
-      <span style={{ fontFamily: "方正楷体", fontSize: 16 }}>方正楷体</span>
-    ),
-    value: "方正楷体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "包图小白体", fontSize: 16 }}>包图小白体</span>
-    ),
-    value: "包图小白体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "手写杂字体", fontSize: 16 }}>手写杂字体</span>
-    ),
-    value: "手写杂字体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "胡晓波男神体", fontSize: 16 }}>
-        胡晓波男神体
+      <span style={{ fontFamily: "AnticDidone", fontSize: 16 }}>
+        AnticDidone
       </span>
     ),
-    value: "胡晓波男神体",
+    value: "AnticDidone",
   },
   {
     label: (
-      <span style={{ fontFamily: "胡晓波骚包体", fontSize: 16 }}>
-        胡晓波骚包体
+      <span style={{ fontFamily: "AzeretMono", fontSize: 16 }}>AzeretMono</span>
+    ),
+    value: "AzeretMono",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "BebasNeue", fontSize: 16 }}>BebasNeue</span>
+    ),
+    value: "BebasNeue",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "BerkshireSwash", fontSize: 16 }}>
+        BerkshireSwash
       </span>
     ),
-    value: "胡晓波骚包体",
+    value: "BerkshireSwash",
+  },
+  {
+    label: <span style={{ fontFamily: "Caveat", fontSize: 16 }}>Caveat</span>,
+    value: "Caveat",
   },
   {
     label: (
-      <span style={{ fontFamily: "站酷快乐体", fontSize: 16 }}>站酷快乐体</span>
-    ),
-    value: "站酷快乐体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "站酷文艺体", fontSize: 16 }}>站酷文艺体</span>
-    ),
-    value: "站酷文艺体",
-  },
-  {
-    label: (
-      <span style={{ fontFamily: "站酷小薇LOGO体", fontSize: 16 }}>
-        站酷小薇LOGO体
+      <span style={{ fontFamily: "CedarvilleCursive", fontSize: 16 }}>
+        CedarvilleCursive
       </span>
     ),
-    value: "站酷小薇LOGO体",
+    value: "CedarvilleCursive",
+  },
+  {
+    label: <span style={{ fontFamily: "Cinzel", fontSize: 16 }}>Cinzel</span>,
+    value: "Cinzel",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Comfortaa", fontSize: 16 }}>Comfortaa</span>
+    ),
+    value: "Comfortaa",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Cormorant", fontSize: 16 }}>Cormorant</span>
+    ),
+    value: "Cormorant",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "CourierPrime", fontSize: 16 }}>
+        CourierPrime
+      </span>
+    ),
+    value: "CourierPrime",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "DancingScript", fontSize: 16 }}>
+        DancingScript
+      </span>
+    ),
+    value: "DancingScript",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "FiraSans", fontSize: 16 }}>FiraSans</span>
+    ),
+    value: "FiraSans",
+  },
+  {
+    label: <span style={{ fontFamily: "Gotu", fontSize: 16 }}>Gotu</span>,
+    value: "Gotu",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "HomemadeApple", fontSize: 16 }}>
+        HomemadeApple
+      </span>
+    ),
+    value: "HomemadeApple",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "IBMPlexMono", fontSize: 16 }}>
+        IBMPlexMono
+      </span>
+    ),
+    value: "IBMPlexMono",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Inconsolata", fontSize: 16 }}>
+        Inconsolata
+      </span>
+    ),
+    value: "Inconsolata",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "IndieFlower", fontSize: 16 }}>
+        IndieFlower
+      </span>
+    ),
+    value: "IndieFlower",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Italiana", fontSize: 16 }}>Italiana</span>
+    ),
+    value: "Italiana",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "JetBrainsMono", fontSize: 16 }}>
+        JetBrainsMono
+      </span>
+    ),
+    value: "JetBrainsMono",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "LaBelleAurore", fontSize: 16 }}>
+        LaBelleAurore
+      </span>
+    ),
+    value: "LaBelleAurore",
+  },
+  {
+    label: <span style={{ fontFamily: "Lato", fontSize: 16 }}>Lato</span>,
+    value: "Lato",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "LeagueScript", fontSize: 16 }}>
+        LeagueScript
+      </span>
+    ),
+    value: "LeagueScript",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "LibreBaskerville", fontSize: 16 }}>
+        LibreBaskerville
+      </span>
+    ),
+    value: "LibreBaskerville",
+  },
+  {
+    label: <span style={{ fontFamily: "Lobster", fontSize: 16 }}>Lobster</span>,
+    value: "Lobster",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Merriweather", fontSize: 16 }}>
+        Merriweather
+      </span>
+    ),
+    value: "Merriweather",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Montserrat", fontSize: 16 }}>Montserrat</span>
+    ),
+    value: "Montserrat",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "NotoSansMono", fontSize: 16 }}>
+        NotoSansMono
+      </span>
+    ),
+    value: "NotoSansMono",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "NotoSerif", fontSize: 16 }}>NotoSerif</span>
+    ),
+    value: "NotoSerif",
+  },
+  {
+    label: <span style={{ fontFamily: "Oswald", fontSize: 16 }}>Oswald</span>,
+    value: "Oswald",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "Pacifico", fontSize: 16 }}>Pacifico</span>
+    ),
+    value: "Pacifico",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "PlayfairDisplay", fontSize: 16 }}>
+        PlayfairDisplay
+      </span>
+    ),
+    value: "PlayfairDisplay",
+  },
+  {
+    label: <span style={{ fontFamily: "Poppins", fontSize: 16 }}>Poppins</span>,
+    value: "Poppins",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "ProzaLibre", fontSize: 16 }}>ProzaLibre</span>
+    ),
+    value: "ProzaLibre",
+  },
+  {
+    label: <span style={{ fontFamily: "PTSans", fontSize: 16 }}>PTSans</span>,
+    value: "PTSans",
+  },
+  {
+    label: <span style={{ fontFamily: "Raleway", fontSize: 16 }}>Raleway</span>,
+    value: "Raleway",
+  },
+  {
+    label: <span style={{ fontFamily: "Roboto", fontSize: 16 }}>Roboto</span>,
+    value: "Roboto",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "RobotoCondensed", fontSize: 16 }}>
+        RobotoCondensed
+      </span>
+    ),
+    value: "RobotoCondensed",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "RobotoMono", fontSize: 16 }}>RobotoMono</span>
+    ),
+    value: "RobotoMono",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "RobotoSlab", fontSize: 16 }}>RobotoSlab</span>
+    ),
+    value: "RobotoSlab",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "ShadowsIntoLight", fontSize: 16 }}>
+        ShadowsIntoLight
+      </span>
+    ),
+    value: "ShadowsIntoLight",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "SourceCodePro", fontSize: 16 }}>
+        SourceCodePro
+      </span>
+    ),
+    value: "SourceCodePro",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "SourceSans3", fontSize: 16 }}>
+        SourceSans3
+      </span>
+    ),
+    value: "SourceSans3",
+  },
+  {
+    label: (
+      <span style={{ fontFamily: "SpaceMono", fontSize: 16 }}>SpaceMono</span>
+    ),
+    value: "SpaceMono",
   },
 ];
 

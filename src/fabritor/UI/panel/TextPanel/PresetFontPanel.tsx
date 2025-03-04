@@ -6,14 +6,18 @@ const PRESET_FONT_LIST = [
   {
     label: (
       <div
-        style={{ fontSize: 30, fontFamily: "SmileySans", fontWeight: "bold" }}
+        style={{
+          fontSize: 30,
+          fontFamily: "RobotoSlab",
+          fontWeight: "bold",
+        }}
       >
         <Trans i18nKey="panel.text.add_title" />
       </div>
     ),
     key: "title",
     config: {
-      fontFamily: "SmileySans",
+      fontFamily: "RobotoSlab",
       fontWeight: "bold",
       fontSize: 120,
       text: () => translate("panel.text.add_title"),
@@ -22,13 +26,13 @@ const PRESET_FONT_LIST = [
   },
   {
     label: (
-      <div style={{ fontSize: 24, fontFamily: "AlibabaPuHuiTi" }}>
+      <div style={{ fontSize: 24, fontFamily: "FiraSans" }}>
         <Trans i18nKey="panel.text.add_subtitle" />
       </div>
     ),
     key: "sub-title",
     config: {
-      fontFamily: "AlibabaPuHuiTi",
+      fontFamily: "FiraSans",
       fontWeight: "bold",
       fontSize: 100,
       text: () => translate("panel.text.add_subtitle"),
@@ -37,13 +41,13 @@ const PRESET_FONT_LIST = [
   },
   {
     label: (
-      <div style={{ fontSize: 16, fontFamily: "SourceHanSerif" }}>
+      <div style={{ fontSize: 16, fontFamily: "BebasNeue" }}>
         <Trans i18nKey="panel.text.add_body_text" />
       </div>
     ),
     key: "content",
     config: {
-      fontFamily: "SourceHanSerif",
+      fontFamily: "BebasNeue",
       fontSize: 80,
       text: () => translate("panel.text.add_body_text"),
     },
@@ -53,7 +57,7 @@ const PRESET_FONT_LIST = [
       <div
         style={{
           fontSize: 26,
-          fontFamily: "霞鹜文楷",
+          fontFamily: "Lobster",
           color: "#ffffff",
           WebkitTextStroke: "1px rgb(255, 87, 87)",
         }}
@@ -63,7 +67,7 @@ const PRESET_FONT_LIST = [
     ),
     key: "content",
     config: {
-      fontFamily: "霞鹜文楷",
+      fontFamily: "Lobster",
       fontSize: 100,
       text: () => translate("panel.text.add_text_border"),
       fill: "#ffffff",

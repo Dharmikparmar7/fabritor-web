@@ -40,7 +40,7 @@ export default function TextFx() {
         new fabric.Pattern({
           source: img as HTMLImageElement,
           repeat: "repeat",
-        }),
+        })
       );
     } catch (e) {
       // console.log(e);

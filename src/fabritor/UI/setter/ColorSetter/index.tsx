@@ -27,6 +27,7 @@ export default function ColorSetter(props) {
         />
       }
       trigger="click"
+      overlayStyle={{ zIndex: 9999 }}
     >
       <div
         className="fabritor-toolbar-item"

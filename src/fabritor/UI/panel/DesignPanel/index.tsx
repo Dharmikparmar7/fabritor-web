@@ -1,11 +1,11 @@
-import { Flex, List, Empty, Button, Divider } from "antd";
-import { useEffect, useContext, useState } from "react";
-import { GlobalStateContext } from "@/context";
-import { SKETCH_ID } from "@/utils/constants";
-import { GroupOutlined, HeartTwoTone } from "@ant-design/icons";
-import ContextMenu from "@/fabritor/components/ContextMenu";
 import DEMOJSON from "@/assets/demo.json";
+import { GlobalStateContext } from "@/context";
+import ContextMenu from "@/fabritor/components/ContextMenu";
 import { useTranslation } from "@/i18n/utils";
+import { SKETCH_ID } from "@/utils/constants";
+import { GroupOutlined, HeartTwoTone, MoreOutlined } from "@ant-design/icons";
+import { Button, Divider, Empty, Flex, List } from "antd";
+import { useContext, useEffect, useState } from "react";
 
 export default function Layer() {
   const {
@@ -95,6 +95,26 @@ export default function Layer() {
     };
   }, [isReady]);
 
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault(); // Prevent default left-click behavior
+
+    const targetElement = event.currentTarget; // Get the clicked element
+    const rect = targetElement.getBoundingClientRect(); // Get position
+
+    // Use a short delay to prevent immediate closure
+    setTimeout(() => {
+      const rightClickEvent = new MouseEvent("contextmenu", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+        clientX: rect.left + rect.width / 2, // Center X
+        clientY: rect.top + rect.height / 2, // Center Y
+      });
+
+      targetElement.dispatchEvent(rightClickEvent); // 🚀 Dispatch right-click event
+    }, 50); // Small delay to avoid closing immediately
+  };
+
   return (
     <div className="fabritor-panel-wrapper">
       {layers.length ? (
@@ -129,6 +149,13 @@ export default function Layer() {
                       style={{ fontSize: 18, color: "rgba(17, 23, 29, 0.6)" }}
                     />
                   ) : null}
+                  <MoreOutlined
+                    style={{
+                      fontSize: 18,
+                      cursor: "pointer",
+                    }}
+                    onClick={handleClick}
+                  />
                 </Flex>
               </List.Item>
             </ContextMenu>

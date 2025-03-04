@@ -1,22 +1,22 @@
-import { useState, useEffect, useContext } from 'react';
-import { Typography } from 'antd';
-import { GlobalStateContext } from '@/context';
-import { useTranslation } from '@/i18n/utils';
+import { useState, useEffect, useContext } from "react";
+import { Typography } from "antd";
+import { GlobalStateContext } from "@/context";
+import { useTranslation } from "@/i18n/utils";
 
 const { Text } = Typography;
 
 export default function BaseInfo() {
-  const [desc, setDesc] = useState('');
+  const [desc, setDesc] = useState("");
   const { editor } = useContext(GlobalStateContext);
   const { t } = useTranslation();
 
   const handleChange = (v) => {
-    const _v = v || t('header.fabritor_desc');
+    const _v = v || t("header.fabritor_desc");
     setDesc(_v);
     if (!editor) return;
     const { sketch } = editor;
     // @ts-ignore custom desc
-    sketch.set('fabritor_desc', _v);
+    sketch.set("fabritor_desc", _v);
 
     editor.fireCustomModifiedEvent();
   };
@@ -30,6 +30,7 @@ export default function BaseInfo() {
 
   return (
     <Text
+      className="baseinfo-text"
       editable={{
         onChange: handleChange,
         autoSize: {
@@ -43,7 +44,7 @@ export default function BaseInfo() {
       }}
       style={{ margin: 0, width: 200 }}
     >
-      {desc || ''}
+      {desc || ""}
     </Text>
   );
 }

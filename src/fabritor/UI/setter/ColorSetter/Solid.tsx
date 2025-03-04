@@ -14,6 +14,7 @@ export default function SolidColorSetter(props) {
     <Popover
       content={<SketchPicker color={value || "#fff"} onChange={handleChange} />}
       trigger="click"
+      overlayStyle={{ zIndex: 9999 }}
     >
       <div
         className="fabritor-toolbar-item"
