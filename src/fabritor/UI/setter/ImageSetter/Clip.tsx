@@ -93,6 +93,7 @@ export default function ClipSetter(props) {
             bottom: 0,
             backgroundColor: "rgba(0,0,0,.65)",
             zIndex: 1000,
+            overflow: "auto",
           }}
           className="fabritor-crop-wrapper"
         >
@@ -100,7 +101,8 @@ export default function ClipSetter(props) {
             style={{
               position: "absolute",
               zIndex: 1001,
-              left: imgInfo.left,
+              left: 0,
+              paddingLeft: 10,
               top: imgInfo.top - 38,
             }}
           >
@@ -150,7 +152,8 @@ export default function ClipSetter(props) {
               height: imgInfo.height,
               position: "absolute",
               zIndex: 1001,
-              left: imgInfo.left,
+              left: 0,
+              paddingLeft: 10,
               top: imgInfo.top,
             }}
             onDoubleClick={handleCrop}
