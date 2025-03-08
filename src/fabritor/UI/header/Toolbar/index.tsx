@@ -74,33 +74,35 @@ export default function Toolbar() {
         <RedoOutlined className="toolbar-icon" />
       </ToolbarItem>
       <ToolbarDivider />
-      <ToolbarItem
-        onClick={enablePan}
-        title={
-          panEnable ? (
-            <Trans i18nKey={`${i18nKeySuffix}.select`} />
+      <div className="toolbar-icon-ls">
+        <ToolbarItem
+          onClick={enablePan}
+          title={
+            panEnable ? (
+              <Trans i18nKey={`${i18nKeySuffix}.select`} />
+            ) : (
+              <Trans i18nKey={`${i18nKeySuffix}.pan`} />
+            )
+          }
+        >
+          {panEnable ? (
+            <DragOutlined className="toolbar-icon " />
           ) : (
-            <Trans i18nKey={`${i18nKeySuffix}.pan`} />
-          )
-        }
-      >
-        {panEnable ? (
-          <DragOutlined className="toolbar-icon toolbar-icon-ls" />
-        ) : (
-          <img
-            src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-              DRAG_ICON
-            )}`}
-            className="toolbar-icon-img toolbar-icon-ls"
-          />
-        )}
-      </ToolbarItem>
-      <ToolbarItem
-        onClick={clearCanvas}
-        title={<Trans i18nKey={`${i18nKeySuffix}.clear`} />}
-      >
-        <ClearOutlined className="toolbar-icon toolbar-icon-ls" />
-      </ToolbarItem>
+            <img
+              src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+                DRAG_ICON
+              )}`}
+              className="toolbar-icon-img "
+            />
+          )}
+        </ToolbarItem>
+        <ToolbarItem
+          onClick={clearCanvas}
+          title={<Trans i18nKey={`${i18nKeySuffix}.clear`} />}
+        >
+          <ClearOutlined className="toolbar-icon" />
+        </ToolbarItem>
+      </div>
 
       <CanvasSize />
     </CenterV>
