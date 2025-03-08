@@ -127,6 +127,19 @@ export const removeObject = (target, canvas) => {
   return true;
 };
 
+export const editObject = (target, canvas) => {
+  if (!target) {
+    target = canvas.getActiveObject();
+  }
+  if (!target) return;
+  console.log(target.type);
+  
+  if (target.type === 'f-text') {
+    target.enterEditing();
+    canvas.requestRenderAll();
+  }
+}
+
 export const groupSelection = (canvas, target) => {
   if (!target) {
     target = canvas.getActiveObject();
