@@ -1,20 +1,21 @@
-import { useContext, useEffect, useState } from "react";
-import { Modal } from "antd";
 import { GlobalStateContext } from "@/context";
-import { DRAG_ICON } from "@/assets/icon";
+import { CenterV } from "@/fabritor/components/Center";
+import ToolbarDivider from "@/fabritor/components/ToolbarDivider";
+import { Trans } from "@/i18n/utils";
 import {
   ClearOutlined,
   DragOutlined,
   ExclamationCircleFilled,
-  UndoOutlined,
   RedoOutlined,
+  UndoOutlined,
 } from "@ant-design/icons";
-import { CenterV } from "@/fabritor/components/Center";
+import { Modal } from "antd";
+import { useContext, useEffect, useState } from "react";
+import CanvasSize from "../CanvasSize";
 import ToolbarItem from "./ToolbarItem";
-import ToolbarDivider from "@/fabritor/components/ToolbarDivider";
-import { Trans } from "@/i18n/utils";
 
 import "./index.scss";
+import { DRAG_ICON } from "@/assets/icon";
 
 const i18nKeySuffix = "header.toolbar";
 
@@ -84,13 +85,13 @@ export default function Toolbar() {
         }
       >
         {panEnable ? (
-          <DragOutlined className="toolbar-icon" />
+          <DragOutlined className="toolbar-icon toolbar-icon-ls" />
         ) : (
           <img
             src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
               DRAG_ICON
             )}`}
-            className="toolbar-icon-img"
+            className="toolbar-icon-img toolbar-icon-ls"
           />
         )}
       </ToolbarItem>
@@ -98,8 +99,10 @@ export default function Toolbar() {
         onClick={clearCanvas}
         title={<Trans i18nKey={`${i18nKeySuffix}.clear`} />}
       >
-        <ClearOutlined className="toolbar-icon" />
+        <ClearOutlined className="toolbar-icon toolbar-icon-ls" />
       </ToolbarItem>
+
+      <CanvasSize />
     </CenterV>
   );
 }
