@@ -107,14 +107,14 @@ export default function Export() {
         paddingRight: 16,
       }}
     >
-      <Button
+      {/* <Button
         title={t(`${i18nKeySuffix}.load`)}
         onClick={selectJsonFile}
         icon={<FileOutlined />}
         size="small"
       >
         {t(`${i18nKeySuffix}.load`)}
-      </Button>
+      </Button> */}
       <Dropdown
         menu={{ items, onClick: handleClick }}
         arrow={{ pointAtCenter: true }}
