@@ -1,8 +1,8 @@
 // cursor css https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor
 
 import { fabric } from 'fabric';
-import { ROTATE_SVG, ROTATE_SVG_ACTIVE, ROTATE_CURSOR, COPY_SVG, DEL_SVG, COPY_SVG_ACTIVE, DEL_SVG_ACTIVE, EDIT_SVG, EDIT_SVG_ACTIVE } from '@/assets/icon';
-import { copyObject, pasteObject, removeObject, editObject } from '@/utils/helper';
+import { ROTATE_SVG, ROTATE_SVG_ACTIVE, ROTATE_CURSOR, COPY_SVG, DEL_SVG, COPY_SVG_ACTIVE, DEL_SVG_ACTIVE} from '@/assets/icon';
+import { copyObject, pasteObject, removeObject } from '@/utils/helper';
 import { initRectControl } from './rect';
 import { initLineControl } from './fline';
 import { initFTextControl } from './ftext';
@@ -21,11 +21,6 @@ const DEL_IMG = document.createElement('img');
 DEL_IMG.src = DEL_SVG;
 const DEL_IMG_ACTIVE = document.createElement('img');
 DEL_IMG_ACTIVE.src = DEL_SVG_ACTIVE;
-
-const EDIT_IMG = document.createElement('img');
-EDIT_IMG.src = EDIT_SVG;
-const EDIT_IMG_ACTIVE = document.createElement('img');
-EDIT_IMG_ACTIVE.src = EDIT_SVG_ACTIVE;
 
 
 const renderSizeIcon = (ctx, left, top, styleOverride, fabricObject, TBorLR) => {
@@ -92,13 +87,6 @@ const handleDelObject = (eventData, transform) => {
   const { target } = transform;
   const { canvas } = target;
   removeObject(target, canvas);
-  return true;
-};
-
-const handleEditObject = (eventData, transform) => {
-  const { target } = transform;
-  const { canvas } = target;
-  editObject(target, canvas);
   return true;
 };
 
@@ -228,17 +216,6 @@ export const renderToolBarController = () => {
     render: renderSvgIcon(DEL_IMG),
   });
   fabric.Object.prototype.controls.del = delControl;
-
-  const editControl = new fabric.Control({
-    x: 0,
-    y: -0.5,
-    offsetX: 12,
-    offsetY: -26,
-    cursorStyle: 'pointer',
-    mouseUpHandler: handleEditObject,
-    render: renderSvgIcon(EDIT_IMG),
-  });
-  fabric.Object.prototype.controls.edit = editControl;
 };
 
 export const handleMouseOverCorner = (corner, target) => {
@@ -250,9 +227,6 @@ export const handleMouseOverCorner = (corner, target) => {
   }
   if (corner === 'del') {
     target.controls[corner].render = renderSvgIcon(DEL_IMG_ACTIVE);
-  }
-  if (corner === 'edit') {
-    target.controls[corner].render = renderSvgIcon(EDIT_IMG_ACTIVE);
   }
   target.canvas.requestRenderAll();
 };
@@ -268,10 +242,6 @@ export const handleMouseOutCorner = (target) => {
   if (target.controls?.del) {
     target.controls.del.render = renderSvgIcon(DEL_IMG);
   }
-  if (target.controls?.edit) {
-    target.controls.edit.render = renderSvgIcon(EDIT_IMG);
-  }
-  
 };
 
 export default function initControl() {

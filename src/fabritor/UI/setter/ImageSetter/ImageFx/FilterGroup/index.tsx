@@ -1,56 +1,77 @@
 import { Slider } from "antd";
 import "./index.scss";
 
+// @ts-ignore
+import None from '@/assets/effects/None.png';
+// @ts-ignore
+import Vintage from '@/assets/effects/Vintage.png';
+// @ts-ignore
+import Film from '@/assets/effects/Film.png';
+// @ts-ignore
+import OldPhoto from '@/assets/effects/Old Photo.png';
+// @ts-ignore
+import Polaroid from '@/assets/effects/Polaroid.png';
+// @ts-ignore
+import Blur from '@/assets/effects/Blur.png';
+// @ts-ignore
+import Emboss from '@/assets/effects/Emboss.png';
+// @ts-ignore
+import Pixelate from '@/assets/effects/Pixelate.png';
+// @ts-ignore
+import BlackAndWhite from '@/assets/effects/Black And White.png';
+// @ts-ignore
+import HueAdjustment from '@/assets/effects/Hue Adjustment.png';
+
 const COLOR_FILTER_LIST = [
   {
     label: "None",
     value: "none",
-    src: "https://cdn.pixabay.com/photo/2017/02/15/13/18/girl-2068638_1280.jpg",
+    src: None,
   },
   {
     label: "Vintage",
     value: "Sepia",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/复古.png",
+    src: Vintage,
   },
   {
     label: "Film",
     value: "Kodachrome",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/胶片.png",
+    src: Film,
   },
   {
     label: "Old Photo",
     value: "Vintage",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/老照片.png",
+    src: OldPhoto,
   },
   {
     label: "Polaroid",
     value: "Polaroid",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/宝丽来.png",
+    src: Polaroid,
   },
   {
     label: "Blur",
     value: "Blur",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/模糊.png",
+    src: Blur,
   },
   {
     label: "Emboss",
     value: "Emboss",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/浮雕.png",
+    src: Emboss,
   },
   {
     label: "Pixelate",
     value: "Pixelate",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/像素.png",
+    src: Pixelate,
   },
   {
     label: "Black & White",
     value: "Grayscale",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/黑白.png",
+    src: BlackAndWhite,
   },
   {
     label: "Hue Adjustment",
     value: "HueRotation",
-    src: "https://raw.githubusercontent.com/sleepy-zone/fabritor-assets/main/images/调色.png",
+    src: HueAdjustment,
   },
 ];
 

@@ -2,9 +2,7 @@ import { GlobalStateContext } from "@/context";
 import { Trans } from "@/i18n/utils";
 import {
   AlertOutlined,
-  AppstoreOutlined,
   BorderOutlined,
-  BulbOutlined,
   FileTextOutlined,
   PictureOutlined,
 } from "@ant-design/icons";

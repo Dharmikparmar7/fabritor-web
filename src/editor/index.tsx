@@ -167,20 +167,46 @@ export default class Editor {
     );
 
     const center = this.canvas.getCenter();
-    this.canvas.zoomToPoint(
-      new fabric.Point(center.left, center.top),
-      zoomLevel - 0.04,
-    );
 
+    if(this.canvas.width < 450){
+      this.canvas.zoomToPoint(
+        new fabric.Point(center.left, center.top),
+        zoomLevel - 0.04,
+      );
+    }
+    else{
+      this.canvas.zoomToPoint(
+        new fabric.Point(center.left, center.top),
+        zoomLevel - 0.13,
+      );
+    }
+    
     // sketch 移至画布中心
     const sketchCenter = this.sketch.getCenterPoint();
     const { viewportTransform } = this.canvas;
-    // @ts-ignore 平移
-    viewportTransform[4] =
-      this.canvas.width / 2 - sketchCenter.x * viewportTransform[0];
-    // @ts-ignore 平移
-    viewportTransform[5] =
-      this.canvas.height / 2 - sketchCenter.y * viewportTransform[3];
+    
+    if(this.canvas.width < 450){
+      // @ts-ignore 平移
+      viewportTransform[4] =
+        this.canvas.width / 2 - sketchCenter.x * viewportTransform[0];
+      // @ts-ignore 平移
+      viewportTransform[5] =
+        this.canvas.height / 2.5 - sketchCenter.y * viewportTransform[3];
+    }
+    else{
+      this.canvas.zoomToPoint(
+        new fabric.Point(center.left, center.top),
+        zoomLevel - 5,
+      );
+      // @ts-ignore 平移
+      viewportTransform[4] =
+        this.canvas.width / 2 - sketchCenter.x * viewportTransform[0];
+      // @ts-ignore 平移
+      viewportTransform[5] =
+        this.canvas.height / 2 - sketchCenter.y * viewportTransform[3];
+
+    }
+
     // @ts-ignore
     this.canvas.setViewportTransform(viewportTransform);
     this.canvas.requestRenderAll();
@@ -305,6 +331,11 @@ export default class Editor {
         // but change left/top when change points ....
         handleFLinePointsWhenMoving(opt);
       }
+
+      // if(target.type === "f-text"){
+      //   console.log("object:modified", target);
+      //   this._adjustSketch2Canvas();
+      // }
     });
   }
 

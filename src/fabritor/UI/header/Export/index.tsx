@@ -19,9 +19,9 @@ const items: MenuProps["items"] = [
   "divider",
   "clipboard",
 ].map((item) =>
-  item === "divider"
+  (item === "divider"
     ? { type: "divider" }
-    : { key: item, label: <Trans i18nKey={`${i18nKeySuffix}.${item}`} /> }
+    : { key: item, label: <Trans i18nKey={`${i18nKeySuffix}.${item}`} /> }),
 );
 
 export default function Export() {
@@ -85,10 +85,10 @@ export default function Export() {
         const json = editor.canvas2Json();
         downloadFile(
           `data:text/json;charset=utf-8,${encodeURIComponent(
-            JSON.stringify(json, null, 2)
+            JSON.stringify(json, null, 2),
           )}`,
           "json",
-          name
+          name,
         );
         break;
       case "clipboard":
@@ -107,14 +107,14 @@ export default function Export() {
         paddingRight: 16,
       }}
     >
-      <Button
+      {/* <Button
         title={t(`${i18nKeySuffix}.load`)}
         onClick={selectJsonFile}
         icon={<FileOutlined />}
         size="small"
       >
         {t(`${i18nKeySuffix}.load`)}
-      </Button>
+      </Button> */}
       <Dropdown
         menu={{ items, onClick: handleClick }}
         arrow={{ pointAtCenter: true }}

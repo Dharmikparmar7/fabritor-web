@@ -103,3 +103,9 @@
     }
   }
 }
+
+.toolbar-icon-ls {
+  @media (max-width: 770px) {
+    display: none;
+  }
+}

@@ -1,51 +1,63 @@
-import { useContext, useEffect, useState } from 'react';
-import { GlobalStateContext } from '@/context';
-import { LockOutlined, UnlockOutlined, CopyOutlined, DeleteOutlined, PicCenterOutlined, AlignLeftOutlined, AlignCenterOutlined, AlignRightOutlined, VerticalAlignTopOutlined, VerticalAlignMiddleOutlined, VerticalAlignBottomOutlined } from '@ant-design/icons';
-import { SKETCH_ID } from '@/utils/constants';
-import OpacitySetter from './OpacitySetter';
-import ToolbarItem from '../../header/Toolbar/ToolbarItem';
-import { CenterV } from '@/fabritor/components/Center';
-import { copyObject, pasteObject, removeObject } from '@/utils/helper';
-import FlipSetter from './FlipSetter';
-import { Divider } from 'antd';
-import PositionSetter from './PositionSetter';
-import { useTranslation, Trans } from '@/i18n/utils';
+import { useContext, useEffect, useState } from "react";
+import { GlobalStateContext } from "@/context";
+import {
+  LockOutlined,
+  UnlockOutlined,
+  CopyOutlined,
+  DeleteOutlined,
+  PicCenterOutlined,
+  AlignLeftOutlined,
+  AlignCenterOutlined,
+  AlignRightOutlined,
+  VerticalAlignTopOutlined,
+  VerticalAlignMiddleOutlined,
+  VerticalAlignBottomOutlined,
+} from "@ant-design/icons";
+import { SKETCH_ID } from "@/utils/constants";
+import OpacitySetter from "./OpacitySetter";
+import ToolbarItem from "../../header/Toolbar/ToolbarItem";
+import { CenterV } from "@/fabritor/components/Center";
+import { copyObject, pasteObject, removeObject } from "@/utils/helper";
+import FlipSetter from "./FlipSetter";
+import { Divider } from "antd";
+import PositionSetter from "./PositionSetter";
+import { useTranslation, Trans } from "@/i18n/utils";
 
 const ALIGH_TYPES = [
   {
     label: <Trans i18nKey="setter.common.center" />,
     icon: PicCenterOutlined,
-    key: 'center',
+    key: "center",
   },
   {
     label: <Trans i18nKey="setter.common.align_left" />,
     icon: AlignLeftOutlined,
-    key: 'left',
+    key: "left",
   },
   {
     label: <Trans i18nKey="setter.common.center_h" />,
     icon: AlignCenterOutlined,
-    key: 'centerH',
+    key: "centerH",
   },
   {
     label: <Trans i18nKey="setter.common.align_right" />,
     icon: AlignRightOutlined,
-    key: 'right',
+    key: "right",
   },
   {
     label: <Trans i18nKey="setter.common.align_top" />,
     icon: VerticalAlignTopOutlined,
-    key: 'top',
+    key: "top",
   },
   {
     label: <Trans i18nKey="setter.common.center_v" />,
     icon: VerticalAlignMiddleOutlined,
-    key: 'centerV',
+    key: "centerV",
   },
   {
     label: <Trans i18nKey="setter.common.align_bottom" />,
     icon: VerticalAlignBottomOutlined,
-    key: 'bottom',
+    key: "bottom",
   },
 ];
 
@@ -67,7 +79,7 @@ export default function CommonSetter() {
   };
 
   const handleOpacity = (v) => {
-    object.set('opacity', v);
+    object.set("opacity", v);
     setOpacity(v);
     editor.canvas.requestRenderAll();
   };
@@ -80,29 +92,29 @@ export default function CommonSetter() {
 
   const alignObject = (alignType) => {
     switch (alignType) {
-      case 'center':
+      case "center":
         editor.canvas.viewportCenterObject(object);
         object.setCoords();
         break;
-      case 'left':
-        object.set('left', 0);
+      case "left":
+        object.set("left", 0);
         break;
-      case 'centerH':
+      case "centerH":
         editor.canvas.viewportCenterObjectH(object);
         object.setCoords();
         break;
-      case 'right':
-        object.set('left', editor.sketch.width - object.width);
+      case "right":
+        object.set("left", editor.sketch.width - object.width);
         break;
-      case 'top':
-        object.set('top', 0);
+      case "top":
+        object.set("top", 0);
         break;
-      case 'centerV':
+      case "centerV":
         editor.canvas.viewportCenterObjectV(object);
         object.setCoords();
         break;
-      case 'bottom':
-        object.set('top', editor.sketch.height - object.height);
+      case "bottom":
+        object.set("top", editor.sketch.height - object.height);
         break;
       default:
         break;
@@ -125,9 +137,9 @@ export default function CommonSetter() {
     <>
       <CenterV height={30} gap={8} justify="space-between">
         <ToolbarItem
-          tooltipProps={{ placement: 'top' }}
+          tooltipProps={{ placement: "top" }}
           onClick={handleLock}
-          title={lock ? t('setter.common.unlock') : t('setter.common.lock')}
+          title={lock ? t("setter.common.unlock") : t("setter.common.lock")}
         >
           {lock ? (
             <UnlockOutlined style={{ fontSize: 20 }} />
@@ -136,8 +148,8 @@ export default function CommonSetter() {
           )}
         </ToolbarItem>
         <ToolbarItem
-          tooltipProps={{ placement: 'top' }}
-          title={t('setter.common.opacity')}
+          tooltipProps={{ placement: "top" }}
+          title={t("setter.common.opacity")}
         >
           <OpacitySetter
             value={opacity}
@@ -148,8 +160,8 @@ export default function CommonSetter() {
           />
         </ToolbarItem>
         <ToolbarItem
-          tooltipProps={{ placement: 'top' }}
-          title={t('setter.common.create_a_copy')}
+          tooltipProps={{ placement: "top" }}
+          title={t("setter.common.create_a_copy")}
           onClick={async () => {
             await copyObject(editor.canvas, object);
             await pasteObject(editor.canvas);
@@ -158,25 +170,25 @@ export default function CommonSetter() {
           <CopyOutlined style={{ fontSize: 20 }} />
         </ToolbarItem>
         <ToolbarItem
-          tooltipProps={{ placement: 'top' }}
-          title={t('setter.common.del')}
+          tooltipProps={{ placement: "top" }}
+          title={t("setter.common.del")}
           onClick={() => {
             removeObject(null, editor.canvas);
           }}
         >
           <DeleteOutlined style={{ fontSize: 20 }} />
         </ToolbarItem>
-        {object.type === 'f-image' ? (
+        {object.type === "f-image" ? (
           <ToolbarItem
-            tooltipProps={{ placement: 'top' }}
-            title={t('setter.common.flip')}
+            tooltipProps={{ placement: "top" }}
+            title={t("setter.common.flip")}
           >
             <FlipSetter onChange={handleFlip} />
           </ToolbarItem>
         ) : null}
       </CenterV>
-      <Divider style={{ margin: '16px 0' }} />
-      <span style={{ fontWeight: 'bold' }}>{t('setter.common.align')}</span>
+      <Divider style={{ margin: "16px 0" }} />
+      <span style={{ fontWeight: "bold" }}>{t("setter.common.align")}</span>
       <CenterV
         height={30}
         gap={8}
@@ -185,7 +197,7 @@ export default function CommonSetter() {
       >
         {ALIGH_TYPES.map((item) => (
           <ToolbarItem
-            tooltipProps={{ placement: 'top' }}
+            tooltipProps={{ placement: "top" }}
             title={item.label}
             key={item.key}
             onClick={() => {
@@ -196,7 +208,7 @@ export default function CommonSetter() {
           </ToolbarItem>
         ))}
       </CenterV>
-      <Divider style={{ margin: '16px 0' }} />
+      <Divider style={{ margin: "16px 0" }} />
       <PositionSetter />
     </>
   );

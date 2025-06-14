@@ -1,20 +1,21 @@
-import { useContext, useEffect, useState } from "react";
-import { Modal } from "antd";
 import { GlobalStateContext } from "@/context";
-import { DRAG_ICON } from "@/assets/icon";
+import { CenterV } from "@/fabritor/components/Center";
+import ToolbarDivider from "@/fabritor/components/ToolbarDivider";
+import { Trans } from "@/i18n/utils";
 import {
   ClearOutlined,
   DragOutlined,
   ExclamationCircleFilled,
-  UndoOutlined,
   RedoOutlined,
+  UndoOutlined,
 } from "@ant-design/icons";
-import { CenterV } from "@/fabritor/components/Center";
+import { Modal } from "antd";
+import { useContext, useEffect, useState } from "react";
+import CanvasSize from "../CanvasSize";
 import ToolbarItem from "./ToolbarItem";
-import ToolbarDivider from "@/fabritor/components/ToolbarDivider";
-import { Trans } from "@/i18n/utils";
 
 import "./index.scss";
+import { DRAG_ICON } from "@/assets/icon";
 
 const i18nKeySuffix = "header.toolbar";
 
@@ -73,33 +74,37 @@ export default function Toolbar() {
         <RedoOutlined className="toolbar-icon" />
       </ToolbarItem>
       <ToolbarDivider />
-      <ToolbarItem
-        onClick={enablePan}
-        title={
-          panEnable ? (
-            <Trans i18nKey={`${i18nKeySuffix}.select`} />
+      <div className="toolbar-icon-ls">
+        <ToolbarItem
+          onClick={enablePan}
+          title={
+            panEnable ? (
+              <Trans i18nKey={`${i18nKeySuffix}.select`} />
+            ) : (
+              <Trans i18nKey={`${i18nKeySuffix}.pan`} />
+            )
+          }
+        >
+          {panEnable ? (
+            <DragOutlined className="toolbar-icon " />
           ) : (
-            <Trans i18nKey={`${i18nKeySuffix}.pan`} />
-          )
-        }
-      >
-        {panEnable ? (
-          <DragOutlined className="toolbar-icon" />
-        ) : (
-          <img
-            src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-              DRAG_ICON
-            )}`}
-            className="toolbar-icon-img"
-          />
-        )}
-      </ToolbarItem>
-      <ToolbarItem
-        onClick={clearCanvas}
-        title={<Trans i18nKey={`${i18nKeySuffix}.clear`} />}
-      >
-        <ClearOutlined className="toolbar-icon" />
-      </ToolbarItem>
+            <img
+              src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+                DRAG_ICON
+              )}`}
+              className="toolbar-icon-img "
+            />
+          )}
+        </ToolbarItem>
+        <ToolbarItem
+          onClick={clearCanvas}
+          title={<Trans i18nKey={`${i18nKeySuffix}.clear`} />}
+        >
+          <ClearOutlined className="toolbar-icon" />
+        </ToolbarItem>
+      </div>
+
+      <CanvasSize />
     </CenterV>
   );
 }

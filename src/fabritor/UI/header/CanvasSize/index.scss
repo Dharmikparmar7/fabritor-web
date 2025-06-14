@@ -1,0 +1,17 @@
+.canvas_size {
+  display: flex;
+  gap: 5px;
+
+  button {
+    background-color: transparent;
+    height: fit-content;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  @media (min-width: 770px) {
+    display: none;
+  }
+}
