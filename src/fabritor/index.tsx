@@ -3,7 +3,7 @@ import Editor from "@/editor";
 import { SKETCH_ID } from "@/utils/constants";
 import { Layout, Spin } from "antd";
 import { fabric } from "fabric";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import rough from "roughjs";
 import ContextMenu from "./components/ContextMenu";
 import ObjectRotateAngleTip from "./components/ObjectRotateAngleTip";
@@ -11,7 +11,7 @@ import Header from "./UI/header";
 import Panel from "./UI/panel";
 import Setter from "./UI/setter";
 
-import { createUrlImage } from "@/editor/objects/image";
+import { createFImage, createUrlImage } from "@/editor/objects/image";
 import "../font.css";
 
 const { Content } = Layout;
@@ -149,14 +149,10 @@ export default function Fabritor({
   useEffect(() => {
     const addImage = async () => {
       if (defaultImageUrl && editor?.canvas) {
-        setReady(false);
         try {
-          await createUrlImage({
+          await createFImage({
             imageSource: defaultImageUrl,
             canvas: editor.canvas,
-            callback: () => {
-              setReady(true);
-            },
           });
         } catch (error) {
           console.error("Error adding image:", error);
