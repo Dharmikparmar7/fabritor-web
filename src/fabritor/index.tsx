@@ -13,6 +13,7 @@ import Setter from "./UI/setter";
 
 import { createFImage, createUrlImage } from "@/editor/objects/image";
 import "../font.css";
+import RemoteImageEDP from "@/remote-image-EDP";
 
 const { Content } = Layout;
 
@@ -145,23 +146,9 @@ export default function Fabritor({
     };
   }, []);
 
-  // Loading the default image from url initial load
-  useEffect(() => {
-    const addImage = async () => {
-      if (defaultImageUrl && editor?.canvas) {
-        try {
-          await createFImage({
-            imageSource: defaultImageUrl,
-            canvas: editor.canvas,
-          });
-        } catch (error) {
-          console.error("Error adding image:", error);
-        }
-      }
-    };
-
-    addImage();
-  }, [defaultImageUrl, editor?.canvas]);
+  function finishLoading(value: boolean) {
+    setReady(value);
+  }
 
   return (
     <GlobalStateContext.Provider
@@ -174,6 +161,13 @@ export default function Fabritor({
         roughSvg,
       }}
     >
+      {defaultImageUrl && (
+        <RemoteImageEDP
+          defaultImageUrl={defaultImageUrl}
+          editor={editor}
+          finishLoading={finishLoading}
+        />
+      )}
       <Layout style={{ height: "100%" }} className="fabritor-layout">
         <Spin spinning={!isReady} fullscreen />
         <ObjectRotateAngleTip />
