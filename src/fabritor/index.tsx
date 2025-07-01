@@ -168,7 +168,7 @@ export default function Fabritor({
           finishLoading={finishLoading}
         />
       )}
-      <Layout style={{ height: "100%" }} className="fabritor-layout">
+      <Layout id={"mainFabritorLayout"} className="fabritor-layout">
         <Spin spinning={!isReady} fullscreen />
         <ObjectRotateAngleTip />
         <Header />
