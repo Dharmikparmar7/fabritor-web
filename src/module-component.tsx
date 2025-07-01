@@ -19,7 +19,7 @@ const HtmlComponent = ({ defaultUrl }) => {
 
   return (
     <ConfigProvider locale={enUS}>
-      <Fabritor defaultImageUrl={defaultUrl} />;
+      <Fabritor defaultImageUrl={defaultUrl} />
     </ConfigProvider>
   );
 };

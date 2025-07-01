@@ -1,6 +1,6 @@
 {
   "name": "fabritor-web",
-  "version": "3.0.1",
+  "version": "4.0.1",
   "description": "fabritor-web",
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -61,8 +61,8 @@
     "webpack-merge": "^6.0.1"
   },
   "scripts": {
-    "dev": "webpack serve --mode development --port 3001",
-   "build": "webpack --mode production",
+    "dev": "webpack serve --mode development --port 3002",
+    "build": "webpack --mode production",
     "surge": "yarn build && cd build && surge",
     "eslint": "eslint ./src --cache --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "npm run eslint -- --fix",
